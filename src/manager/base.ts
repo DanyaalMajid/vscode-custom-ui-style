@@ -58,7 +58,7 @@ export abstract class BaseFileManager implements FileManager {
     log.info(`Config reload [${this.srcPath}]`)
   }
 
-  async rollback() {
+  async rollback(cleanup = false) {
     if (!this.hasBakFile) {
       log.warn(`Backup file [${this.bakPath}] does not exist, skip rollback`)
     } else {
@@ -68,6 +68,9 @@ export abstract class BaseFileManager implements FileManager {
       }
       writeFileSync(this.srcPath, content)
       log.info(`Config rollback [${this.srcPath}]`)
+      if (cleanup) {
+        fs.rmSync(this.bakPath)
+      }
     }
   }
 

@@ -320,10 +320,11 @@ In some VSCode forks like Cursor, the extension detail panel may not render due 
 
 <!-- commands -->
 
-| Command                    | Title                     |
-| -------------------------- | ------------------------- |
-| `custom-ui-style.reload`   | Custom UI Style: Reload   |
-| `custom-ui-style.rollback` | Custom UI Style: Rollback |
+| Command                    | Title                                                    |
+| -------------------------- | -------------------------------------------------------- |
+| `custom-ui-style.reload`   | Custom UI Style: Reload                                  |
+| `custom-ui-style.rollback` | Custom UI Style: Rollback                                |
+| `custom-ui-style.cleanup`  | Custom UI Style: Rollback, cleanup and restart instantly |
 
 <!-- commands -->
 

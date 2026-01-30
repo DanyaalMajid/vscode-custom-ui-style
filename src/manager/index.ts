@@ -47,11 +47,12 @@ export function createFileManagers() {
         },
       )
     },
-    rollback: async (text: string) => {
+    rollback: async (text: string, cleanup = false) => {
       await runAndRestart(
         text,
         isVSCodeUsingESM || config.preferRestart,
-        () => Promise.all([...builtinManagers, ...createExtensionFileManagers()].map(m => m.rollback())),
+        () => Promise.all([...builtinManagers, ...createExtensionFileManagers()].map(m => m.rollback(cleanup))),
+        cleanup,
       )
     },
   }

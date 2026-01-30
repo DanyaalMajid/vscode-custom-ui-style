@@ -26,6 +26,7 @@ const { activate, deactivate } = defineExtension(() => {
 
   useCommand(Meta.commands.reload, () => reload(changedMsg))
   useCommand(Meta.commands.rollback, () => rollback(rollbackMsg))
+  useCommand(Meta.commands.cleanup, () => rollback(rollbackMsg, true))
 
   useDisposable(
     workspace.onDidChangeConfiguration(

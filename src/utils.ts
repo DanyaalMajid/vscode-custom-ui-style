@@ -36,7 +36,7 @@ function logWindowOptionsChanged(useFullRestart: boolean) {
   last = current
 }
 
-export async function runAndRestart(message: string, fullRestart: boolean, action: () => Promise<any>) {
+export async function runAndRestart(message: string, fullRestart: boolean, action: () => Promise<any>, instantRestart = false) {
   let count = 5
   const check = () => fs.existsSync(lockFile)
   while (check() && count--) {
@@ -83,6 +83,10 @@ export async function runAndRestart(message: string, fullRestart: boolean, actio
   }
 
   if (success) {
+    if (instantRestart) {
+      await restartApp()
+      return
+    }
     let shouldProceed = false
     if (config.reloadWithoutPrompting) {
       shouldProceed = true

@@ -46,6 +46,11 @@
         "command": "custom-ui-style.rollback",
         "title": "Rollback",
         "category": "Custom UI Style"
+      },
+      {
+        "command": "custom-ui-style.cleanup",
+        "title": "Rollback, cleanup and restart instantly",
+        "category": "Custom UI Style"
       }
     ],
     "configuration": {
