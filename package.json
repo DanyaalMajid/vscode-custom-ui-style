@@ -3,7 +3,7 @@
   "name": "custom-ui-style",
   "displayName": "Custom UI Style",
   "type": "commonjs",
-  "version": "0.6.6",
+  "version": "0.6.7",
   "private": true,
   "packageManager": "pnpm@10.12.1",
   "description": "Custom ui css style in both editor and webview, unify global font family, setup background image",
