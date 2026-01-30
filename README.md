@@ -41,6 +41,11 @@ Untested on Linux and VSCode forks (like Cursor, WindSurf, etc.), and I currentl
 
 Available CSS Variables:
 
+- `--cus-mono`: Target monospace font family
+- `--cus-sans`: Target sans-serif font family
+
+Deprecated variables:
+
 - `--cus-monospace-font`: Target monospace font family
 - `--cus-sans-font`: Target sans-serif font family
 

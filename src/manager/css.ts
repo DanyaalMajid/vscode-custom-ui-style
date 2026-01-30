@@ -37,32 +37,35 @@ function generateFontCSS() {
   if (monospace) {
     result += `
 body {
-  --cus-monospace-font: ${monospace}, ${VSC_NOTEBOOK_MONO_FONT};
+  --cus-mono: ${monospace}, ${VSC_NOTEBOOK_MONO_FONT};
+  --cus-monospace-font: var(--cus-mono);
 }
 span.monaco-keybinding-key,
 .setting-list-row,
 kbd {
-  font-family: var(--cus-monospace-font) !important;
+  font-family: var(--cus-mono) !important;
 }
 .windows,
 .mac,
 .linux {
-  --monaco-monospace-font: var(--cus-monospace-font) !important;
+  --monaco-monospace-font: var(--cus-mono) !important;
 }`
   }
   if (sansSerif) {
     result += `
 body {
-  --cus-sans-font: ${sansSerif};
+  --cus-sans: ${sansSerif};
+  --cus-sans-font: var(--cus-sans);
+  --vscode-font-family: var(--cus-sans);
 }
 .windows {
-  font-family: var(--cus-sans-font), ${VSC_DFAULT_SANS_FONT.win} !important;
+  font-family: var(--cus-sans), ${VSC_DFAULT_SANS_FONT.win} !important;
 }
 .mac {
-  font-family: var(--cus-sans-font), ${VSC_DFAULT_SANS_FONT.mac} !important;
+  font-family: var(--cus-sans), ${VSC_DFAULT_SANS_FONT.mac} !important;
 }
 .linux {
-  font-family: var(--cus-sans-font), ${VSC_DFAULT_SANS_FONT.linux} !important;
+  font-family: var(--cus-sans), ${VSC_DFAULT_SANS_FONT.linux} !important;
 }`
   }
   return result
