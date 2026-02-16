@@ -11,16 +11,19 @@ export class MainFileManager extends BaseFileManager {
   }
 
   patch(content: string): string {
-    let patched = content.replaceAll(
-      entry,
-      `${entry},${JSON.stringify(config.electron).slice(1, -1)}`,
-    )
-    if ('backgroundColor' in config.electron) {
-      patched = patched.replace(
-        setBgColorRegex,
-        `setBackgroundColor("${config.electron.backgroundColor}");`,
+    const result = JSON.stringify(config.electron).slice(1, -1)
+    if (result) {
+      content = content.replaceAll(
+        entry,
+        `${entry},${result}`,
       )
+      if ('backgroundColor' in config.electron) {
+        content = content.replace(
+          setBgColorRegex,
+          `setBackgroundColor("${config.electron.backgroundColor}");`,
+        )
+      }
     }
-    return patched
+    return content
   }
 }
