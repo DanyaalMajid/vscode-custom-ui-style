@@ -256,6 +256,20 @@ If your changes don't seem to apply, you may need to fully restart VSCode.
 
 There are also a [guide](https://github.com/subframe7536/vscode-custom-ui-style/issues/1#issuecomment-2423660217) and a [video](https://github.com/subframe7536/vscode-custom-ui-style/issues/2#issuecomment-2432225106) (macOS) available for more detailed instructions.
 
+### Explorer tree cuts off with deeply nested folders
+
+This can happen when using `transform` on Explorer tree internals. VS Code uses virtual scrolling for the file tree, and these transforms can break visible row calculations.
+
+Avoid using `transform` on:
+
+- `.explorer-viewlet .split-view-container`
+- `.explorer-folders-view .monaco-list-rows`
+- `.explorer-folders-view .monaco-tl-row`
+
+Suggestion: use non-layout styles for Explorer customization instead (for example `border-radius`, `background`, `color`, `outline`, and `box-shadow`).
+
+See [#71](https://github.com/subframe7536/vscode-custom-ui-style/issues/71) for details and reproduction.
+
 ### EROFS: read-only file system
 
 If you see this error, it means VSCode is installed on a read-only filesystem (e.g., via Snap or AppImage). This extension needs to write to the installation directory, so you'll need to install VSCode using a different method.
